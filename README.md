@@ -10,7 +10,7 @@ This project was developed in the "Codeboost" course with the objective of pract
 - JavaScript
 
 ## Challenges
-- Let the website responsive
+- Make the website responsive
 - Add a menu in mobile version
 
 
