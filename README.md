@@ -1,15 +1,15 @@
 # neon-landing-page
 
-#About
+##About
 This project was developed in the "Codeboost" course with the objective of practicing web development.
 
-#Technologies
+##Technologies
 -HTML5
 -CSS3
 -SASS
 -JavaScript
 
-#Challenges
+##Challenges
 -Let the website responsive
 -Add a menu in mobile version
 
