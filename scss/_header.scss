@@ -1,0 +1,296 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    z-index: 5;
+    height: 8.8rem;
+    border-bottom: 2px solid rgba($color: #ffffff, $alpha: 0.2);
+    transition: all .3s;
+
+    &.fixed-menu {
+        background-color: white;
+        box-shadow: 0 0 30px 0 rgba(0,0,0,0.07);
+        
+        .logo {
+            background: url("../img/logo-neon-color.svg") no-repeat;
+            background-size: contain;
+        }
+
+        nav {
+            ul {
+                li {
+                    a {
+                        color: #5F5C6B;
+
+                        &:hover {
+                            color: #00a5f0;
+                        }
+                    }
+                }
+            }
+
+            .btn-secondary {
+                color: #00a5f0;
+                border: 1px solid #00a5f0;;
+
+                &:hover {
+                    background-color: #00a5f0;
+                    color: white;
+                }
+            }
+        }
+
+        .btn-mobile {
+            background: url('../img/btn-mobile-azul.svg') no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .logo {
+        display: inline-block;
+        max-width: 13.1rem;
+        width: 100%;
+        height: 3rem;
+        background: url("../img/logo.svg") no-repeat center center;
+        background-size: 100%;
+        transition: background .3s;
+    }
+
+
+    .container {
+        @include flex(row, center, space-between); 
+    }
+    
+    nav {
+        @include flex(row, center, space-between);
+        position: relative;
+
+        .dropdown {
+            position: absolute; 
+            max-width: 37.3rem;
+            top: 5rem;
+            background: #ffffff;
+            border-radius: .6rem;
+            padding: 4rem;
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            transition: all .3s;
+            box-shadow: 0 0 30px 0 rgba(0,0,0,0.07);
+
+            &.produtos-neon {
+                left: -12rem;
+            }
+
+            &.conta-digital-pj {
+                left: 8rem;
+            }
+
+            &.ajuda {
+                left: 24rem;
+            }
+
+            &.active {
+                opacity: 1;
+                pointer-events: all;
+                transform: translateY(0);
+            }
+
+            &:after {
+                content: '';
+                width: 29.3rem;
+                height: .5rem;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background: $brand-yellow;
+                border-radius: 1.2rem 1.2rem 0 0;
+                position: absolute;
+                margin: 0 auto;
+            }
+
+            .item {
+                &:not(:last-child) {
+                    margin-bottom: 2.8rem
+                }
+
+                &:hover {
+                    strong {
+                        color: $brand-blue;
+                    }
+                }
+                
+                strong {
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                    line-height: 1.9rem;
+                    color: #5F5C6B;
+                    display: inline-block;
+                    margin-bottom: .4rem;
+                    transition: color .3s;
+                    cursor: pointer;
+                }
+
+                p {
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                    line-height: 150%;
+                    color: #8C8A97;
+                }
+            }
+        }
+
+        ul {
+            @include flex(row, center, space-between);
+            margin-right: 5.9rem;
+
+            li {
+                &:not(:first-child) {
+                    margin-left: 4.8rem;
+                }
+
+                a {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    line-height: 125%;
+                    color: #FFFFFF;
+                    transition: all .3s;
+                    
+                    &:hover {
+                        color: $brand-yellow;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .btn-mobile {
+        display: none;
+        margin-left: 4rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        background: url("../img/btn-mobile.svg") no-repeat;
+        background-size: contain;
+
+        img {
+            display: none;
+        }
+    }
+
+    @include responsive(1100px) {
+        nav {
+            ul {
+                margin-right: 3rem; 
+
+                li {
+                    &:not(:first-child) {
+                        margin-left: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @include responsive(991px) {
+        .logo {
+            height: 2.5rem;
+            max-width: 10rem;
+            height: 2.5rem;
+        }
+
+        nav {
+            ul {
+                display: none;
+            }
+        }
+
+        .btn-mobile {
+            display: block;
+
+        }
+    }
+
+    @include responsive(480px) {
+        height: 7.3rem;
+
+        nav {
+            .btn-secondary {
+                display: none;
+            }
+        }
+    }
+}
+
+.customize-support {
+    header {
+        top: 31px;
+    }
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 120;
+    transition: all .3s;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s;
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        z-index: 0;
+    }
+
+    aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 75%;
+        height: 100%;
+        background-color: white;
+        padding: 3rem;
+        transform: translateX(-100%);
+        transition: transform .3s;
+
+        .logo-mobile {
+            max-width: 15rem;
+            margin-bottom: 4rem;
+        }
+
+        ul {
+            li {
+                a {
+                    padding: 1.5rem 0;
+                    display: block;
+                    font-size: 1.8rem;
+                    color: #5f5c6b;
+                }
+            }
+        }
+    }
+}
+
+.menu-opened {
+    overflow: hidden;
+    .menu-mobile {
+        opacity: 1;
+        pointer-events: all;
+
+        aside {
+            transform: translateX(0);
+        }
+    }
+}
